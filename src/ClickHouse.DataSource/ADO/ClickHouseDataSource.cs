@@ -1,4 +1,5 @@
 using System.Data.Common;
+using Microsoft.Extensions.Logging;
 
 namespace ClickHouse.Client.ADO;
 
@@ -69,7 +70,18 @@ public sealed class ClickHouseDataSource : DbDataSource, IClickHouseDataSource
 		get;
 	}
 
-	protected override DbConnection CreateDbConnection() => connectionFactory();
+	public ILogger? Logger {
+		get;
+		set;
+	}
+
+	protected override DbConnection CreateDbConnection() {
+		var cn = connectionFactory();
+		if (cn.Logger == null && Logger != null) {
+			cn.Logger = Logger;
+		}
+		return cn;
+	}
 
 	public new ClickHouseConnection CreateConnection() => (ClickHouseConnection)CreateDbConnection();
 
