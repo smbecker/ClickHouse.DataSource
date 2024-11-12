@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<PackageTags>$(PackageTags);ClickHouse;DependencyInjection</PackageTags>
+		<Description>ClickHosue.DataSource.DependencyInjection adds support for using ClickHouse.DataSource with the Microsoft.Extensions.DependencyInjection APIs.</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\ClickHouse.DataSource\ClickHouse.DataSource.csproj" />
+	</ItemGroup>
+
+</Project>

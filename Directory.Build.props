@@ -1,0 +1,10 @@
+<Project>
+	<PropertyGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<AnalysisMode>All</AnalysisMode>
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+		<RootNamespace>ClickHouse.Client</RootNamespace>
+	</PropertyGroup>
+</Project>

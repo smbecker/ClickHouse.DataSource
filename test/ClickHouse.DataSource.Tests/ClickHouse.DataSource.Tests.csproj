@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\ClickHouse.DataSource\ClickHouse.DataSource.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Testcontainers.ClickHouse" />
+	</ItemGroup>
+
+</Project>
