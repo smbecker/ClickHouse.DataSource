@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 		<PackageTags>$(PackageTags);ClickHouse;OpenTelemetry</PackageTags>
-		<Description>ClickHouse.OpenTelemetry integrates ClickHouse with OpenTelemetry APIs.</Description>
+		<Description>ClickHouse.Extensions.OpenTelemetry integrates ClickHouse with OpenTelemetry APIs.</Description>
 	</PropertyGroup>
 
 	<ItemGroup>

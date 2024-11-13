@@ -1,4 +1,5 @@
 using System.Data.Common;
+using System.Net;
 using ClickHouse.Client;
 using ClickHouse.Client.ADO;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -34,7 +35,17 @@ public static class ClickHouseServiceCollectionExtensions
 		ServiceLifetime connectionLifetime = ServiceLifetime.Transient,
 		ServiceLifetime dataSourceLifetime = ServiceLifetime.Singleton,
 		object? serviceKey = null
-	) => AddClickHouseDataSource(services, (_, _) => new ClickHouseDataSource(connectionString, httpClient), connectionLifetime, dataSourceLifetime, serviceKey);
+	) => AddClickHouseDataSource(services, (_, _) => {
+		if (httpClient == null) {
+			// Ensure that we are using the same HTTP client for all connections
+#pragma warning disable CA5399
+			httpClient = new HttpClient(new HttpClientHandler {
+				AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
+			});
+#pragma warning restore CA5399
+		}
+		return new ClickHouseDataSource(connectionString, httpClient);
+	}, connectionLifetime, dataSourceLifetime, serviceKey);
 
 	/// <summary>
 	/// Registers an <see cref="ClickHouseDataSource" /> and an <see cref="ClickHouseConnection" /> in the <see cref="IServiceCollection" />.

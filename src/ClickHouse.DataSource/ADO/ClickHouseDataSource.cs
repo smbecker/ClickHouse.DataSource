@@ -6,6 +6,7 @@ namespace ClickHouse.Client.ADO;
 public sealed class ClickHouseDataSource : DbDataSource, IClickHouseDataSource
 {
 	private readonly Func<ClickHouseConnection> connectionFactory;
+	private readonly HttpClient? httpClient;
 
 	/// <summary>
 	/// Initializes a new instance of the <see cref="ClickHouseDataSource"/> class using provided HttpClient.
@@ -13,13 +14,17 @@ public sealed class ClickHouseDataSource : DbDataSource, IClickHouseDataSource
 	/// </summary>
 	/// <param name="connectionString">Connection string</param>
 	/// <param name="httpClient">instance of HttpClient</param>
-	public ClickHouseDataSource(string connectionString, HttpClient? httpClient = null) {
-		ArgumentNullException.ThrowIfNull(connectionString);
+	/// <param name="disposeHttpClient"></param>
+	public ClickHouseDataSource(string connectionString, HttpClient? httpClient = null, bool disposeHttpClient = true) {
 		ConnectionString = connectionString;
 		if (httpClient != null) {
 			connectionFactory = () => new ClickHouseConnection(connectionString, httpClient);
 		} else {
 			connectionFactory = () => new ClickHouseConnection(connectionString);
+		}
+
+		if (disposeHttpClient) {
+			this.httpClient = httpClient;
 		}
 	}
 
@@ -59,7 +64,6 @@ public sealed class ClickHouseDataSource : DbDataSource, IClickHouseDataSource
 	/// </list>
 	/// </remarks>
 	public ClickHouseDataSource(string connectionString, IHttpClientFactory httpClientFactory, string httpClientName = "") {
-		ArgumentNullException.ThrowIfNull(connectionString);
 		ArgumentNullException.ThrowIfNull(httpClientFactory);
 		ArgumentNullException.ThrowIfNull(httpClientName);
 		ConnectionString = connectionString;
@@ -73,6 +77,14 @@ public sealed class ClickHouseDataSource : DbDataSource, IClickHouseDataSource
 	public ILogger? Logger {
 		get;
 		set;
+	}
+
+	protected override void Dispose(bool disposing) {
+		base.Dispose(disposing);
+
+		if (disposing) {
+			httpClient?.Dispose();
+		}
 	}
 
 	protected override DbConnection CreateDbConnection() {

@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<PackageTags>$(PackageTags);ClickHouse;DependencyInjection</PackageTags>
-		<Description>ClickHosue.DataSource.DependencyInjection adds support for using ClickHouse.DataSource with the Microsoft.Extensions.DependencyInjection APIs.</Description>
+		<Description>ClickHosue.Extensions.DependencyInjection adds support for using ClickHouse.DataSource with the Microsoft.Extensions.DependencyInjection APIs.</Description>
 	</PropertyGroup>
 
 	<ItemGroup>

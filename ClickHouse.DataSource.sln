@@ -8,11 +8,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2388C1EA-3CB
 		src\Directory.Build.props = src\Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickHouse.DataSource.DependencyInjection", "src\ClickHouse.DataSource.DependencyInjection\ClickHouse.DataSource.DependencyInjection.csproj", "{63D42F99-84FF-4461-B756-4083FE4BCBE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickHouse.Extensions.DependencyInjection", "src\ClickHouse.Extensions.DependencyInjection\ClickHouse.Extensions.DependencyInjection.csproj", "{63D42F99-84FF-4461-B756-4083FE4BCBE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickHouse.DataSource", "src\ClickHouse.DataSource\ClickHouse.DataSource.csproj", "{9CC4E9AA-978A-4E67-A924-590564371DA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickHouse.OpenTelemetry", "src\ClickHouse.OpenTelemetry\ClickHouse.OpenTelemetry.csproj", "{60AA0DEC-6D9C-4F57-A9C9-4319747C739D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickHouse.Extensions.OpenTelemetry", "src\ClickHouse.Extensions.OpenTelemetry\ClickHouse.Extensions.OpenTelemetry.csproj", "{60AA0DEC-6D9C-4F57-A9C9-4319747C739D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{9D830CEF-6AFD-41DB-82A3-30481B1C9B69}"
 	ProjectSection(SolutionItems) = preProject
@@ -26,7 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1BF9EC17-A
 		test\Directory.Build.props = test\Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickHouse.DataSource.DependencyInjection.Tests", "test\ClickHouse.DataSource.DependencyInjection.Tests\ClickHouse.DataSource.DependencyInjection.Tests.csproj", "{8E591D05-DEBC-449B-93C6-1E49AB90C2BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickHouse.Extensions.DependencyInjection.Tests", "test\ClickHouse.Extensions.DependencyInjection.Tests\ClickHouse.Extensions.DependencyInjection.Tests.csproj", "{8E591D05-DEBC-449B-93C6-1E49AB90C2BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClickHouse.DataSource.Tests", "test\ClickHouse.DataSource.Tests\ClickHouse.DataSource.Tests.csproj", "{AE1F7918-06B1-46A6-BEF5-85C6DEA70249}"
 EndProject

@@ -1,21 +1,23 @@
-﻿# ClickHouse OpenTelemetry Extensions
+﻿# ClickHouse Dependency Injection Extensions
 
 _[![Build status](https://github.com/smbecker/ClickHouse.DataSource/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/smbecker/ClickHouse.DataSource/actions/workflows/ci.yaml)_
 _[![CodeQL analysis](https://github.com/smbecker/ClickHouse.DataSource/actions/workflows/codeql.yaml/badge.svg?branch=main)](https://github.com/smbecker/ClickHouse.DataSource/actions/workflows/codeql.yaml)_
 
-Integrates [ClickHouse.Client](https://github.com/DarkWanderer/ClickHouse.Client/) with the [OpenTelemetry SDK](https://github.com/open-telemetry/opentelemetry-dotnet) APIs.
+Enables easy integration of [ClickHouse.DataSource](https://www.nuget.org/packages/ClickHouse.DataSource) with the new [.NET Generic Host](https://learn.microsoft.com/en-us/dotnet/core/extensions/generic-host?tabs=appbuilder) project types.
 
 ## Installation
 
 ```sh
-dotnet add package ClickHouse.OpenTelemetry
+dotnet add package ClickHouse.Extensions.DependencyInjection
 ```
 
 ## Usage
 
 ```c#
-services.AddOpenTelemetry().WithTracing(static tracing => tracing.AddClickHouse());
+services.AddClickHouseDataSource("Host=localhost");
 ```
+
+This will register the `IClickHouseDataSource` as a singleton in the service collection with the connection string.
 
 ## License
 
